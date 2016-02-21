@@ -77,7 +77,6 @@
             </div>
         </div>
 
- <c:import url="rodape.jsp"/>
 
         <link rel="icon" href="images/video.ico" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

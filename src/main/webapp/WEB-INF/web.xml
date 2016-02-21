@@ -85,4 +85,11 @@
     <session-config>
         <session-timeout>2</session-timeout>
     </session-config>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <pageEncoding>utf-8</pageEncoding>                        
+            <include-coda>footer.jsp</include-coda>
+        </jsp-property-group>
+    </jsp-config>
 </web-app>

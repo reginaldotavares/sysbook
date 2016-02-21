@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,40 +48,41 @@
                         </li>
 
                         <li>
-                            <a href="#">Livros</a>
+                            <a href="#"><span class="glyphicon glyphicon-book"></span> Livros</a>
                         </li>
 
+                        <c:if test="${sessionScope.usuario == null}">
+                            <li>
+                                <a href="cadastrar.jsp"><span class="glyphicon glyphicon-user"></span> Cadastrar</a>
+                            </li>
+                            <li>
+                                <a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                            </li>
+                        </c:if>
 
-                        <li>
-                            <a href="cadastrar.jsp"><span class="glyphicon glyphicon-user"></span> Cadastrar</a>
-                        </li>
-                        <li>
-                            <a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-                        </li>
+                        <c:if test="${sessionScope.usuario != null}">
 
-
-
-                        <li>
-                            <a href="ListarUsuarios">Usuarios</a>
-                        </li>
-                        <li>
-                            <a href="#">Grupos</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Perfil <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">Ver Solicitações de Amizade</a>
-                                </li>
-                                <li>
-                                    <a href="#">Editar Perfil</a>
-                                </li>
-                                <li>
-                                    <a href="#">Excluir Perfil</a>
-                                </li>
-                            </ul>
-                        </li>
-
+                            <li>
+                                <a href="ListarUsuarios">Usuarios</a>
+                            </li>
+                            <li>
+                                <a href="#">Grupos</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Perfil <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Ver Solicitações de Amizade</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Editar Perfil</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Excluir Perfil</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </c:if>
                         <li>
                             <form action="#" method="post" class="navbar-form pull-right">
                                 <!--<input type="text" name="pesquisa" class="span3">-->

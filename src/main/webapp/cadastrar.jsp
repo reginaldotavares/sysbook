@@ -171,4 +171,4 @@
             window.addEventListener('load', load);
         </script>
         
-    <c:import url="footer.jsp"/>
+    
