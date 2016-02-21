@@ -19,6 +19,8 @@
         <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap-social.css" rel="stylesheet" type="text/css">	
         <link href="css/templatemo_style.css" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/style.css">
         <link href="css/estilo2.css" rel="stylesheet" type="text/css" />
         <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -85,6 +87,9 @@
                                     </li>
                                     <li>
                                         <a href="#">Excluir Perfil</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                                     </li>
                                 </ul>
                             </li>
