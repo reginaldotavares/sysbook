@@ -12,7 +12,7 @@
     </servlet>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>servlets.Login</servlet-class>
+        <servlet-class>com.br.sistema.servlets.Login</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -20,7 +20,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Logout</servlet-name>
-        <servlet-class>servlets.Logout</servlet-class>
+        <servlet-class>com.br.sistema.servlets.Logout</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
@@ -28,7 +28,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>UpdateUsuario</servlet-name>
-        <servlet-class>servlets.UpdateUsuario</servlet-class>
+        <servlet-class>com.br.sistema.servlets.UpdateUsuario</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdateUsuario</servlet-name>
@@ -52,7 +52,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>DeletarUsuario</servlet-name>
-        <servlet-class>servlets.DeletarUsuario</servlet-class>
+        <servlet-class>com.br.sistema.servlets.DeletarUsuario</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeletarUsuario</servlet-name>
@@ -60,7 +60,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CadastrarLivros</servlet-name>
-        <servlet-class>servlets.CadastrarLivros</servlet-class>
+        <servlet-class>com.br.sistema.servlets.CadastrarLivros</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarLivros</servlet-name>
@@ -68,7 +68,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ListarLivros</servlet-name>
-        <servlet-class>servlets.ListarLivros</servlet-class>
+        <servlet-class>com.br.sistema.servlets.ListarLivros</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListarLivros</servlet-name>
@@ -76,7 +76,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>EncontrarLivros</servlet-name>
-        <servlet-class>servlets.EncontrarLivros</servlet-class>
+        <servlet-class>com.br.sistema.servlets.EncontrarLivros</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EncontrarLivros</servlet-name>
