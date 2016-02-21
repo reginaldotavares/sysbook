@@ -1,6 +1,4 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:import url="header.jsp"/>
-
 <body class="templatemo-bg-image-2">
         <div class="container">
         <div class="col-md-12">	

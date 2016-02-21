@@ -42,7 +42,7 @@
                         </div>
                         <div class="templatemo-other-signin col-md-6">
                             <label class="margin-bottom-15">
-                                Se você não tem um cadastro, com um click você pode fazer o seu! <a rel="nofollow" href="cadastrar.jsp">SisMovies</a>. 
+                                Se você não tem um cadastro, com um click você pode fazer o seu! <a rel="nofollow" href="cadastrar.jsp">SisLivros</a>. 
 
                             </label>
                             <a class="btn btn-block btn-social btn-facebook margin-bottom-15">
@@ -76,13 +76,3 @@
 
             </div>
         </div>
-
-
-        <link rel="icon" href="images/video.ico" type="image/x-icon">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-        <link href="css/bootstrap-social.css" rel="stylesheet" type="text/css">	
-        <link href="css/templatemo_style.css" rel="stylesheet" type="text/css">
-        

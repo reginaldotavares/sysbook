@@ -16,8 +16,12 @@
         <title>Sys Livros -  Sua rede social sobre livros</title>
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/bootstrap-responsive.css"/>
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+        <link href="css/bootstrap-social.css" rel="stylesheet" type="text/css">	
+        <link href="css/templatemo_style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/style.css">
         <link href="css/estilo2.css" rel="stylesheet" type="text/css" />
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <script src="js/respond.min.js"></script>
         <script src="js/jquery.min_1.js"></script>
         <script src="js/responsiveslides.min.js"></script>
@@ -42,7 +46,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-
+                        <c:if test="${sessionScope.usuario != null}">
+                            <li>Olá , ${sessionScope.usuario.apelido}</li>
+                        </c:if>
                         <li>
                             <a href="index.jsp"><span class="glyphicon glyphicon-home"></span></a>
                         </li>
@@ -60,7 +66,7 @@
                             </li>
                         </c:if>
 
-                        <c:if test="${sessionScope.usuario != null}">
+                            <c:if test="${sessionScope.usuario != null}">
 
                             <li>
                                 <a href="ListarUsuarios">Usuarios</a>

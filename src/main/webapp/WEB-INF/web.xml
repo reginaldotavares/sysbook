@@ -88,7 +88,8 @@
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
-            <pageEncoding>utf-8</pageEncoding>                        
+            <pageEncoding>utf-8</pageEncoding>  
+            <include-prelude>header.jsp</include-prelude>                      
             <include-coda>footer.jsp</include-coda>
         </jsp-property-group>
     </jsp-config>

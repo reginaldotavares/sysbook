@@ -52,10 +52,10 @@ public class Login extends HttpServlet {
            }else if((usuario.getEmail().equals(email)) && (usuario.getSenha().equals(senha))) {
 
             HttpSession session  =  request.getSession();
-            session.setAttribute("sessaoUsuario",usuario.getNome());
+            session.setAttribute("usuario",usuario);
             dispatcher = request.getRequestDispatcher("/index.jsp");
-
             dispatcher.forward(request, response);
+            
             }else{
                 request.setAttribute("mensagem", "usuario/Senha inválido");
                 dispatcher = request.getRequestDispatcher("/login.jsp");
