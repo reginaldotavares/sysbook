@@ -60,9 +60,8 @@ public class CadastrarUsuario extends HttpServlet {
                 }
                 
                 String dataNascimento = itens.get(3).getString("UTF-8");
-                String tipo = itens.get(8).getString("UTF-8");
 
-                usuarioGer.adicionarUsuario(email, nome, apelido, senha, cidade, estado, foto, converter.stringParaDate(dataNascimento), tipo);
+                usuarioGer.adicionarUsuario(email, nome, apelido, senha, cidade, estado, foto, converter.stringParaDate(dataNascimento));
 
 
             } catch (SQLException ex) {

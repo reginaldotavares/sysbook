@@ -44,7 +44,7 @@ public class UsuarioDao implements UsuarioDaoIF {
         pstm.setString(6, usuario.getEstado());
         pstm.setString(7, usuario.getFoto());
         pstm.setDate(8, (java.sql.Date) usuario.getDataNascimento());
-        pstm.setString(9, usuario.getTipo());
+        pstm.setBoolean(9, usuario.getTipo());
         pstm.executeUpdate();
     }catch(SQLException e){
            System.out.println(e);
@@ -89,7 +89,7 @@ public class UsuarioDao implements UsuarioDaoIF {
             pstm.setString(6, usuario.getEstado());
             pstm.setDate(7, (java.sql.Date) usuario.getDataNascimento());
             pstm.setString(8, usuario.getFoto());
-            pstm.setString(9, usuario.getTipo());
+            pstm.setBoolean(9, usuario.getTipo());
             pstm.executeUpdate();
         
         } catch(Exception E) { 
@@ -120,7 +120,7 @@ public class UsuarioDao implements UsuarioDaoIF {
                 usuario.setEstado(result.getString("estado"));
                 usuario.setDataNascimento(result.getDate("dataNascimento"));
                 usuario.setFoto(result.getString("foto"));
-                usuario.setTipo(result.getString("tipo"));
+                usuario.setTipo(result.getBoolean("tipo"));
             }
             return usuario;
             
@@ -152,7 +152,7 @@ public class UsuarioDao implements UsuarioDaoIF {
                 usuario.setEstado(result.getString("estado"));
                 usuario.setDataNascimento(result.getDate("dataNascimento"));
                 usuario.setFoto(result.getString("foto"));
-                usuario.setTipo(result.getString("tipo"));
+                usuario.setTipo(result.getBoolean("tipo"));
             }
             
             if (usuario.getNome() != null && usuario.getSenha() != null){
@@ -193,7 +193,7 @@ public class UsuarioDao implements UsuarioDaoIF {
                 usuario.setEstado(result.getString("estado"));
                 usuario.setDataNascimento(result.getDate("datanascimento"));
                 usuario.setFoto(result.getString("foto"));
-                usuario.setTipo(result.getString("tipo"));
+                usuario.setTipo(result.getBoolean("tipo"));
                 
                 usuarios.add(usuario);
             }
@@ -240,7 +240,7 @@ public class UsuarioDao implements UsuarioDaoIF {
                 usuario.setEstado(result.getString("estado"));
                 usuario.setDataNascimento(result.getDate("dataNascimento"));
                 usuario.setFoto(result.getString("foto"));
-                usuario.setTipo(result.getString("tipo"));
+                usuario.setTipo(result.getBoolean("tipo"));
             }
                 return usuario;
               } catch(Exception E) { 
@@ -272,7 +272,7 @@ public class UsuarioDao implements UsuarioDaoIF {
                 usuario.setEstado(result.getString("estado"));
                 usuario.setDataNascimento(result.getDate("dataNascimento"));
                 usuario.setFoto(result.getString("foto"));
-                usuario.setTipo(result.getString("tipo"));
+                usuario.setTipo(result.getBoolean("tipo"));
             }
                 return usuario;
               } catch(Exception E) { 

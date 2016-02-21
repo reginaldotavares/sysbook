@@ -11,7 +11,7 @@ import java.util.List;
 
 public class GerenciadorDeUsuario {
     
-    public void adicionarUsuario(String email, String nome, String apelido, String senha, String cidade, String estado, String fotoCapa, Date dataNascimento,  String tipo) throws SQLException{
+    public void adicionarUsuario(String email, String nome, String apelido, String senha, String cidade, String estado, String fotoCapa, Date dataNascimento) throws SQLException{
         Usuario novoUsuario = new Usuario();
         ConverterData data = new ConverterData();
         novoUsuario.setEmail(email);
@@ -22,7 +22,6 @@ public class GerenciadorDeUsuario {
         novoUsuario.setEstado(estado);
         novoUsuario.setDataNascimento(dataNascimento);
         novoUsuario.setFoto(fotoCapa);
-        novoUsuario.setTipo(tipo);
         
         DaoFactoryIF fabrica = DaoFactory.creatFactory();
         UsuarioDaoIF usuDao = fabrica.criaUsuarioDao();

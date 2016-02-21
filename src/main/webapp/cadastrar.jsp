@@ -91,16 +91,8 @@
 
                                         <input name="cidade" type = "text" class = "form-control" id = "cidade" placeholder = "Cidade" required>
                                     </div>
-                                </div>
+                                </div>                              
                                 
-                                <div class = "col-md-6">
-                                    <label for="tipo" class="control-label">Tipo</label>
-                                    <div class="templatemo-input-icon-container">
-                                        <i class="fa fa-lock"></i>
-
-                                        <input name="tipo" type = "text" class = "form-control" id = "tipo" placeholder = "Tipo" required>
-                                    </div>
-                                </div>
                             </div>
                        
                   

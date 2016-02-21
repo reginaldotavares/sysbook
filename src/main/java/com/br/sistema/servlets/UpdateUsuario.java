@@ -43,7 +43,7 @@ public class UpdateUsuario extends HttpServlet {
             Logger.getLogger(UpdateUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         usuario.setFoto(request.getParameter("foto"));
-        usuario.setTipo(request.getParameter("tipo"));
+        //usuario.setTipo(request.getParameter("tipo"));
 //        usuario.setSexo(request.getParameter("sexo"));
         try {
             usuarioGer.atualizaUsuario(usuario);

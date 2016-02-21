@@ -89,7 +89,7 @@ ConverterData converter = new ConverterData();
                 try {
                     GerenciadorDeUsuario gerenciarUsuario = new GerenciadorDeUsuario();
                     try {
-                        gerenciarUsuario.adicionarUsuario(email, nome, apelido, senha, cidade, estado, tipo, converter.stringParaDate(data_nascimento), tipo);
+                        gerenciarUsuario.adicionarUsuario(email, nome, apelido, senha, cidade, estado, tipo, converter.stringParaDate(data_nascimento));
                     } catch (SQLException ex) {
                         Logger.getLogger(SalvarInformacao.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (ParseException ex) {

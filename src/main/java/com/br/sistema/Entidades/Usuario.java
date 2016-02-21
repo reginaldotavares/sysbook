@@ -13,12 +13,12 @@ import java.util.Objects;
         private String estado;
         private Date dataNascimento;
         private String foto;
-        private String tipo;
+        private boolean tipo;
 
     public Usuario() {
     }
 
-    public Usuario(String email, String nome, String apelido, String senha, String cidade, String estado, String foto, Date dataNascimento, String tipo) {
+    public Usuario(String email, String nome, String apelido, String senha, String cidade, String estado, String foto, Date dataNascimento) {
         this.email = email;
         this.nome = nome;
         this.apelido = apelido;
@@ -27,7 +27,7 @@ import java.util.Objects;
         this.estado = estado;
         this.foto = foto;
         this.dataNascimento = dataNascimento;
-        this.tipo = tipo;
+        this.tipo = false;
     }
 
     public int getId() {
@@ -102,11 +102,11 @@ import java.util.Objects;
         this.foto = foto;
     }
 
-    public String getTipo() {
+    public boolean getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(boolean tipo) {
         this.tipo = tipo;
     }
 
