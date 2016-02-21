@@ -74,7 +74,7 @@ public class CadastrarUsuario extends HttpServlet {
         }
 
         }
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
 }
