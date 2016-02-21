@@ -1,0 +1,229 @@
+body{
+    background-color: #dbdbdb;
+    font-family: 'Roboto',sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+article{
+    position: relative;
+    padding: 2%;
+    border-radius: 3px;
+    background-color: white;
+    margin: 0% 10%;
+    top: 80px;
+        text-align: center;
+    border: solid 1px #cccccc;
+    border-bottom: solid 2px #cccccc;
+}
+h2{
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.container-fluid{
+    margin: 0px;
+    padding: 0px;
+}
+.campo-texto{
+    margin: 5px 0px;
+    width: 200px;
+    text-indent: 2px;
+    height: 25px;
+    border-radius: 3px;
+    border: solid black 1px;
+}
+.imagem-perfil{
+    width: 200px;
+    height: 200px;
+}
+.foto{
+    position: relative;
+    display: inline;
+    font-size: 4px;
+    padding-bottom: 85px;
+    opacity: 0;
+    background-image: url(../images/perfil.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 300px;
+    overflow: hidden;
+    border: dashed #09c150 2px;
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+}
+.lista{
+    list-style: none;
+    padding: 0px;
+}
+.lista li{
+    margin: 5px 0px;
+    padding: 0px;
+}
+.lista li a{
+    margin-left: 3px;
+    padding: 1px 3px;
+    background-color: #cbefc4;
+    text-decoration: none;
+    border-radius: 3px;
+    color: #000;
+}
+.lista li a:hover{
+    background-color: #09c150;
+    color: blue;
+}
+.lista input[type="text"]{
+    width: 200px;
+    text-indent: 2px;
+    height: 25px;
+    border-radius: 3px;
+    border: solid black 1px;
+}
+.lista input[type="submit"]{
+    background-color: #09c150;
+    border: none;
+    border-radius: 3px;
+    padding: 3px 7px;
+}
+.lista input[type="submit"]:hover{
+    background-color: #09c150;
+    color: blue;
+}
+.botoes{
+    margin-top: 30px;
+}
+.configuracoes{
+    display: inline-table;
+    text-align: center;
+    top: 0px;
+    position: relative;
+    padding: 10px;
+    width: 49%;
+}
+b{
+    text-align: left;
+    display: inline-block;
+}
+.relacionamentos{
+    list-style: none;
+    padding-left: 2%;
+}
+.relacionamentos li{
+    display: block;
+    margin: 8px 0px;
+}
+.imgPerfil{
+    width: 100px;
+    height: 100px;
+    border-radius: 200px;
+    display: block;
+    position: relative;
+    background-image: url(../images/user.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.27);
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+.nome{
+    display: block;
+    position: relative;
+    font-size: medium;
+    font-weight: bold;
+}
+.tipo{
+    display: block;
+    color: #999999;
+}
+.nome,.tipo{
+    text-indent: 6px;
+}
+.info-relacionamento{
+    display: inline-table;
+    position: relative;
+}
+.remove-relacionamento{
+    margin-left: 15px;
+    display: inline-table;
+    top: -10px;
+    position: relative;
+}
+.remove-relacionamento a{
+    background-color: #cbefc4;
+    padding: 3px 4px;
+    text-decoration: none;
+    color: #000;
+    border-radius: 3px;
+}
+.remove-relacionamento a:hover{
+    color: blue;
+}
+.info-basica-relacionamento{
+    top: 0px;
+    display: inline-block;
+    position: relative;
+    margin: 3px;
+}
+.info-basica-relacionamento a{
+    color: black;
+}
+.imagem{
+    top: 0px;
+    float: left;
+    position: relative;
+    display: inline-block;
+}
+.adicionar-foto{
+    background-image: url(../images/adicionarFoto.png);
+    display:block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-color: #09c150;
+    background-position: 50%;
+    border-radius: 300px;
+    overflow: hidden;
+    border: dashed #09c150 2px;
+    width: 200px;
+    height: 44px;
+    margin: 0 auto;
+    background-color: rgba(83, 78, 78, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.27);
+    color: #FFF;
+}
+
+.botao{
+    
+    /*background-image: url(../images/botao_cadastrar.png);*/
+    display:block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-color: #09c150;
+    background-position: 50%;
+    border-radius: 300px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.27);
+    background-color: rgba(83, 78, 78, 0.35);
+    width: 219px;
+    height: 70px;
+    margin: 0px auto;
+    font-family: cooper;
+    text-shadow: 2px 3px 8px #000;
+}
+
+.campoBotao{
+/*    background-image: url(../images/botao_cadastrar.png);
+    display:block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 300px;
+    overflow: hidden;
+    border: dashed #09c150 2px;
+    width: 200px;
+    height: 70px;
+    margin: 0 auto;*/
+}
