@@ -45,8 +45,8 @@ public class Login extends HttpServlet {
         try {
         usuario = usuarioGer.pesquisarUsuarioEmail(email);
         RequestDispatcher dispatcher = null;
-           if (usuario==null){
-               request.setAttribute("mensagem", "usuario/Senha inválido");
+           if (usuario.getEmail()==null){
+               request.setAttribute("mensagem", "Usuário não cadastrado!");
                 dispatcher = request.getRequestDispatcher("/login.jsp");
                 dispatcher.forward(request, response);
            }else if((usuario.getEmail().equals(email)) && (usuario.getSenha().equals(senha))) {
@@ -57,7 +57,7 @@ public class Login extends HttpServlet {
             dispatcher.forward(request, response);
             
             }else{
-                request.setAttribute("mensagem", "usuario/Senha inválido");
+                request.setAttribute("mensagem", "Senha inválida");
                 dispatcher = request.getRequestDispatcher("/login.jsp");
                 dispatcher.forward(request, response);
                 
