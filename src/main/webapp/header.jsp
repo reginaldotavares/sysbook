@@ -49,10 +49,12 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <c:if test="${sessionScope.usuario != null}">
-                            <li>Olá , ${sessionScope.usuario.apelido}</li>
+                            <li>
+                                <a href="#">Olá , ${sessionScope.usuario.apelido} </a>
+                            </li>
                         </c:if>
                         <li>
-                            <a href="index.jsp"><span class="glyphicon glyphicon-home"></span></a>
+                            <a href="index.jsp"><span class="glyphicon glyphicon-home"></span> SysLivros</a>
                         </li>
 
                         <li>
@@ -68,10 +70,9 @@
                             </li>
                         </c:if>
 
-                            <c:if test="${sessionScope.usuario != null}">
-
+                            <c:if test="${sessionScope.usuario != null}">                                
                             <li>
-                                <a href="ListarUsuarios">Usuarios</a>
+                                <a href="#">Amigos</a>
                             </li>
                             <li>
                                 <a href="#">Grupos</a>
@@ -89,7 +90,7 @@
                                         <a href="#"><span class="glyphicon glyphicon-remove"></span> Excluir Perfil</a>
                                     </li>
                                     <li>
-                                        <a href="/Logout"><span class="glyphicon glyphicon-log-out btn bg-danger"></span> Logout</a>
+                                        <a href="Logout"><span class="glyphicon glyphicon-log-out btn bg-danger"></span> Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -106,6 +107,19 @@
                                 <!--                        <button type="submit" class="btn">Search<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>-->
                             </form>
                         </li>
+                        <c:if test="${sessionScope.usuario.tipo == true}">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administração <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="CadastrarLivros"><span class="glyphicon glyphicon-flag"></span> Cadastrar Livros</a>
+                                    </li>
+                                    <li>
+                                        <a href="ListarUsuarios"><span class="glyphicon glyphicon-cog"></span>Usuários</a>
+                                    </li>                                    
+                                </ul>
+                        </li>
+                        </c:if>
                     </ul>
 
 
