@@ -43,20 +43,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                </div>
-
+                </div>                
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="index.jsp"><span class="glyphicon glyphicon-home"></span> Home</a>
+                        </li>  
                         <c:if test="${sessionScope.usuario != null}">
                             <li>
-                                <a href="#">Olá , ${sessionScope.usuario.apelido} </a>
+                                <a  id="boasvindas" href="#">Olá , ${sessionScope.usuario.apelido} </a>
                             </li>
-                        </c:if>
-                        <li>
-                            <a href="index.jsp"><span class="glyphicon glyphicon-home"></span> SysLivros</a>
-                        </li>
-
+                        </c:if>  
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">                                         
                         <li>
                             <a href="#"><span class="glyphicon glyphicon-book"></span> Livros</a>
                         </li>
