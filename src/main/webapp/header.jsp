@@ -84,7 +84,7 @@
                                         <a href="#"><span class="glyphicon glyphicon-flag"></span> Ver Solicitações de Amizade</a>
                                     </li>
                                     <li>
-                                        <a href="#"><span class="glyphicon glyphicon-cog"></span> Editar Perfil</a>
+                                        <a href="updateUsuario.jsp"><span class="glyphicon glyphicon-cog"></span> Editar Perfil</a>
                                     </li>
                                     <li>
                                         <a href="#"><span class="glyphicon glyphicon-remove"></span> Excluir Perfil</a>
