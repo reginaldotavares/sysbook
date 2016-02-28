@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib tagdir="/WEB-INF/tags/" prefix="tag1"%>
 <body class="templatemo-bg-image-2">
         <div class="container">
         <div class="col-md-12">	
@@ -105,6 +106,11 @@
                         
                             <br>
                             <br>
+                            <div class="mensagem">
+                                <h1>
+                                    <tag1:statusUsuarioSenha/>
+                                </h1>
+                            </div>
                             <br>
                             <br>
 
