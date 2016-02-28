@@ -72,10 +72,10 @@
 
                             <c:if test="${sessionScope.usuario != null}">                                
                             <li>
-                                <a href="#">Amigos</a>
+                                <a href="#"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Amigos</a>
                             </li>
                             <li>
-                                <a href="#">Grupos</a>
+                                <a href="#"><span class="glyphicon glyphicon-globe"></span> Grupos</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Perfil <b class="caret"></b></a>
@@ -111,11 +111,13 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administração <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
+                                    <li class="dropdown-header"><span class="glyphicon glyphicon-book"></span> Livro</li>
                                     <li>
-                                        <a href="CadastrarLivros"><span class="glyphicon glyphicon-flag"></span> Cadastrar Livros</a>
+                                        <a href="CadastrarLivros"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar</a>
                                     </li>
+                                    <li class="dropdown-header"><span class="glyphicon glyphicon-user"></span> Usuário</li>
                                     <li>
-                                        <a href="ListarUsuarios"><span class="glyphicon glyphicon-cog"></span>Usuários</a>
+                                        <a href="ListarUsuarios"><span class="glyphicon glyphicon-list"></span> Listar</a>
                                     </li>                                    
                                 </ul>
                         </li>
