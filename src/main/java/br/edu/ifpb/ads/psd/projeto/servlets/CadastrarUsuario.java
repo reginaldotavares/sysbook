@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -59,8 +60,7 @@ public class CadastrarUsuario extends HttpServlet {
                     foto = "imagensPerfil/" + nomeImagem + ".jpg";
                 }
                 
-                String dataNascimento = itens.get(3).getString("UTF-8");
-
+                String dataNascimento = itens.get(3).getString("UTF-8");                
                 usuarioGer.adicionarUsuario(email, nome, apelido, senha, cidade, estado, foto, converter.stringParaDate(dataNascimento));
 
 

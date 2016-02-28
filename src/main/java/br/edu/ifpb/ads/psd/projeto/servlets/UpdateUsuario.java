@@ -4,9 +4,13 @@ package br.edu.ifpb.ads.psd.projeto.servlets;
 import br.edu.ifpb.ads.psd.projeto.converterInformacao.ConverterData;
 import br.edu.ifpb.ads.psd.projeto.entidades.Usuario;
 import br.edu.ifpb.ads.psd.projeto.gerenciadores.GerenciadorDeUsuario;
+import br.edu.ifpb.ads.psd.projeto.gerenciadores.GerenciadorImagem;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -15,6 +19,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 public class UpdateUsuario extends HttpServlet {
 
@@ -28,32 +38,47 @@ public class UpdateUsuario extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        request.setCharacterEncoding("UTF-8");
-        Usuario usuario = new Usuario();
-        
-        usuario.setEmail(request.getParameter("email"));
-        usuario.setNome(request.getParameter("nome"));
-        usuario.setApelido(request.getParameter("apelido"));
-        usuario.setSenha(request.getParameter("senha"));
-        usuario.setCidade(request.getParameter("cidade"));
-        usuario.setEstado(request.getParameter("estado"));
-        try {
-            usuario.setDataNascimento(converter.stringParaDate(request.getParameter("dataNascimento")));
+        if (ServletFileUpload.isMultipartContent(request)) {
+            FileItemFactory factory = new DiskFileItemFactory();
+            ServletFileUpload upload = new ServletFileUpload(factory);
+
+            try {
+                List<FileItem> itens;
+                itens = (ArrayList<FileItem>) upload.parseRequest(request);
+
+                String email = itens.get(4).getString("UTF-8");
+                String nome = itens.get(1).getString("UTF-8");
+                String apelido = itens.get(2).getString("UTF-8");
+                String senha = itens.get(5).getString("UTF-8");
+                String cidade = itens.get(7).getString("UTF-8");
+                String estado = itens.get(6).getString("UTF-8");
+               
+                
+                String realPath = getServletContext().getRealPath("/imagensPerfil");
+                String nomeImagem = nome;
+                String foto;
+                if (itens.get(0).getString().equals("")) {
+                    foto = "images/usuario.png";
+                } else {
+                    new GerenciadorImagem().inserirImagemPerfil(itens.get(0), realPath, nomeImagem);
+                    foto = "imagensPerfil/" + nomeImagem + ".jpg";
+                }
+                
+                String dataNascimento = itens.get(3).getString("UTF-8");
+                System.err.println(dataNascimento);
+                Usuario u = new Usuario(email, nome, apelido, senha, cidade, estado, foto, converter.stringParaDate(dataNascimento));
+                usuarioGer.atualizaUsuario(u);
+
+
+            } catch (SQLException ex) {
+            Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
-            Logger.getLogger(UpdateUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileUploadException ex) {
+            Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        usuario.setFoto(request.getParameter("foto"));
-        //usuario.setTipo(request.getParameter("tipo"));
-//        usuario.setSexo(request.getParameter("sexo"));
-        try {
-            usuarioGer.atualizaUsuario(usuario);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ListarUsuarios");
-
-        dispatcher.forward(request, response);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(UpdateUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

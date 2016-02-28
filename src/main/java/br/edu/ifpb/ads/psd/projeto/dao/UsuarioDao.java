@@ -77,19 +77,18 @@ public class UsuarioDao implements UsuarioDaoIF {
         try {
             conexao.abrir();
             
-            String SQL = "update Usuario result email=?, nome=?, apelido=?, senha=?, cidade=?, estado=?,"
-                    + "dataNascimento=?, foto=? where id=?";
+            String SQL = "update Usuario set nome=?, apelido=?, senha=?, cidade=?, estado=?,"
+                    + "dataNascimento=?, foto=? where email=?";
             
-            pstm = con.prepareStatement(SQL);
-            pstm.setString(1, usuario.getEmail());
-            pstm.setString(2, usuario.getNome());
-            pstm.setString(3, usuario.getApelido());
-            pstm.setString(4, usuario.getSenha());
-            pstm.setString(5, usuario.getCidade());
-            pstm.setString(6, usuario.getEstado());
-            pstm.setDate(7, (java.sql.Date) usuario.getDataNascimento());
-            pstm.setString(8, usuario.getFoto());
-            pstm.setBoolean(9, usuario.getTipo());
+            pstm = con.prepareStatement(SQL);            
+            pstm.setString(1, usuario.getNome());
+            pstm.setString(2, usuario.getApelido());
+            pstm.setString(3, usuario.getSenha());
+            pstm.setString(4, usuario.getCidade());
+            pstm.setString(5, usuario.getEstado());
+            pstm.setDate(6, (java.sql.Date) usuario.getDataNascimento());
+            pstm.setString(7, usuario.getFoto());
+            pstm.setString(8, usuario.getEmail());
             pstm.executeUpdate();
         
         } catch(Exception E) { 
