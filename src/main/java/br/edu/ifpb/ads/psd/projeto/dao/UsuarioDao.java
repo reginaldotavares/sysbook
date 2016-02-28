@@ -131,11 +131,11 @@ public class UsuarioDao implements UsuarioDaoIF {
         return null;
     }
     
-    public boolean logar(String nome, String senha) throws SQLException {
+    public boolean logar(String email, String senha) throws SQLException {
         try {
             conexao.abrir();
        
-            String SQL = "select * from Usuario where nome ilike '%"+ nome +"%'";
+            String SQL = "select * from Usuario where nome ilike '%"+ email +"%'";
             pstm = con.prepareStatement(SQL);
             
             ResultSet result = pstm.executeQuery();
@@ -154,8 +154,8 @@ public class UsuarioDao implements UsuarioDaoIF {
                 usuario.setTipo(result.getBoolean("tipo"));
             }
             
-            if (usuario.getNome() != null && usuario.getSenha() != null){
-                if (usuario.getNome().equalsIgnoreCase(nome) 
+            if (usuario.getEmail()!= null && usuario.getSenha() != null){
+                if (usuario.getEmail().equalsIgnoreCase(email) 
                         && usuario.getSenha().equalsIgnoreCase(senha)){
                     return true;
                 }

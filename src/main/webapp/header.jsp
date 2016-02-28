@@ -87,10 +87,10 @@
                                         <a href="updateUsuario.jsp"><span class="glyphicon glyphicon-cog"></span> Editar Perfil</a>
                                     </li>
                                     <li>
-                                        <a href="#"><span class="glyphicon glyphicon-remove"></span> Excluir Perfil</a>
+                                        <a href="deletarUsuario.jsp"><span class="glyphicon glyphicon-remove"></span> Excluir Perfil</a>
                                     </li>
                                     <li>
-                                        <a href="Logout"><span class="glyphicon glyphicon-log-out btn bg-danger"></span> Logout</a>
+                                        <a href="Logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                                     </li>
                                 </ul>
                             </li>

@@ -64,10 +64,10 @@ public class GerenciadorDeUsuario {
         usuario.atualizarImagemPerfil(caminho, id);
     }
     
-    public boolean logar(String nome, String senha) throws SQLException{
+    public boolean logar(String email, String senha) throws SQLException{
         DaoFactoryIF fabrica = DaoFactory.creatFactory();
         UsuarioDaoIF usuDao = fabrica.criaUsuarioDao();
-        return usuDao.logar(nome, senha);
+        return usuDao.logar(email, senha);
     }
     
     public List<Usuario> listarUsuarios() throws SQLException{

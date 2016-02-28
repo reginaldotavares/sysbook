@@ -16,7 +16,7 @@ public interface UsuarioDaoIF {
     
     public boolean verificarExistenciaEmail(String email) throws SQLException;
     
-    public boolean logar(String nome, String senha)throws SQLException;
+    public boolean logar(String email, String senha)throws SQLException;  
     
     public List<Usuario> Listar() throws SQLException;
     
