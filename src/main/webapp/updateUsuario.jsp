@@ -111,14 +111,10 @@
                             
                         </div>
                         
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-
+                            
             <div class="form-group">
                 <div class="col-md-12">
-                    <input type="submit" class="botao">
+                    <button type="submit" class="botao"><span class="glyphicon glyphicon-hdd"></span> Salvar </button>
                 </div>
             </div>
                     </div>
