@@ -1,7 +1,6 @@
 package br.edu.ifpb.ads.psd.projeto.servlets;
 
 import br.edu.ifpb.ads.psd.projeto.converterInformacao.ConverterData;
-import br.edu.ifpb.ads.psd.projeto.entidades.Usuario;
 import br.edu.ifpb.ads.psd.projeto.gerenciadores.GerenciadorDeUsuario;
 import br.edu.ifpb.ads.psd.projeto.gerenciadores.GerenciadorImagem;
 import java.io.IOException;
@@ -61,15 +60,9 @@ public class CadastrarUsuario extends HttpServlet {
                     foto = "imagensPerfil/" + nomeImagem + ".jpg";
                 }
                 
-                String dataNascimento = itens.get(3).getString("UTF-8");
-                Usuario user = new Usuario();
-                user = usuarioGer.pesquisarUsuarioEmail(email);
-                if(user.getEmail().equals(email)){
-                    request.setAttribute("mensagem", "Email já cadastrado");
-                    request.getRequestDispatcher("cadastrarUsuario.jsp").forward(request, response);
-                }else{
-                    usuarioGer.adicionarUsuario(email, nome, apelido, senha, cidade, estado, foto, converter.stringParaDate(dataNascimento));
-                }
+                String dataNascimento = itens.get(3).getString("UTF-8");                
+                usuarioGer.adicionarUsuario(email, nome, apelido, senha, cidade, estado, foto, converter.stringParaDate(dataNascimento));
+
 
             } catch (SQLException ex) {
             Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
