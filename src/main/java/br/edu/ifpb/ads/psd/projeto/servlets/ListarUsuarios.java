@@ -35,7 +35,7 @@ public class ListarUsuarios extends HttpServlet {
          } catch (SQLException ex) {
              Logger.getLogger(ListarUsuarios.class.getName()).log(Level.SEVERE, null, ex);
          }
-        request.setAttribute("lista", lista);
+        request.setAttribute("usuarios", lista);
 
         dispatcher.forward(request, response);
 
