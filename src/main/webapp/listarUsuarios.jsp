@@ -35,7 +35,7 @@
                                     <td>Admin</td>
                                 </c:if>
                                 <c:if test="${user.tipo==false}">
-                                    <td>Básico</td>
+                                    <td>Básico <a href="TornarAdmin?<c:out value="${user.email}"/>" title="Tornar Admin"><span class="glyphicon glyphicon-cog"</a></td>
                                 </c:if>
                                 
                             </tr>               

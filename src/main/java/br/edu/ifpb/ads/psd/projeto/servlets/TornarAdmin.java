@@ -41,9 +41,12 @@ public class TornarAdmin extends HttpServlet {
         String email = request.getParameter("email");
         try {
             Usuario u = usuarioGer.getUsuario(email);
+            u.setTipo(true);
+            usuarioGer.atualizaUsuario(u);            
         } catch (SQLException ex) {
             Logger.getLogger(TornarAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
+        request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);
     }
 
     /**

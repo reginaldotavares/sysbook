@@ -112,6 +112,7 @@ public class UsuarioDao implements UsuarioDaoIF {
             
             while(result.next()){
                 Usuario usuario = new Usuario();
+                usuario.setId(result.getInt("id"));
                 usuario.setEmail(result.getString("email"));
                 usuario.setNome(result.getString("nome"));
                 usuario.setApelido(result.getString("apelido"));
@@ -138,7 +139,7 @@ public class UsuarioDao implements UsuarioDaoIF {
         try {
             conexao.abrir();
        
-            String SQL = "SELECT * FROM Usuario WHERE email = ?";
+            String SQL = "SELECT * FROM usuario WHERE email = ?";
             pstm = con.prepareStatement(SQL);
             pstm.setString(1, email);
             
@@ -147,6 +148,7 @@ public class UsuarioDao implements UsuarioDaoIF {
             Usuario usuario = new Usuario();
             
             while(result.next()){
+                usuario.setId(result.getInt("id"));
                 usuario.setEmail(result.getString("email"));
                 usuario.setNome(result.getString("nome"));
                 usuario.setApelido(result.getString("apelido"));
@@ -181,7 +183,7 @@ public class UsuarioDao implements UsuarioDaoIF {
         try {
             conexao.abrir();
             
-            String SQL = "select nome, apelido, email, cidade, estado, datanascimento, foto, tipo from usuario";
+            String SQL = "SELECT id, nome, apelido, email, cidade, estado, datanascimento, foto, tipo FROM usuario";
             
             pstm = con.prepareStatement(SQL);
             
@@ -212,7 +214,7 @@ public class UsuarioDao implements UsuarioDaoIF {
     public void atualizarImagemPerfil(String path, int idUsuario) throws SQLException {
         try {
             conexao.abrir();
-            String sql = "UPDATE Usuario SET foto=? WHERE id=?";
+            String sql = "UPDATE usuario SET foto=? WHERE id=?";
             PreparedStatement stat = con.prepareStatement(sql);
             stat.setString(1, path);
             stat.setInt(2, idUsuario);
@@ -228,13 +230,14 @@ public class UsuarioDao implements UsuarioDaoIF {
     public Usuario getUsuario(String email) throws SQLException {
         try {
             conexao.abrir();
-            String sql = "SELECT * FROM Usuario WHERE email=?";
+            String sql = "SELECT * FROM usuario WHERE email=?";
             pstm = con.prepareStatement(sql);
             pstm.setString(1, email);
             ResultSet result = pstm.executeQuery();
             
             Usuario usuario = new Usuario();
             if (result.next()) {
+                usuario.setId(result.getInt("id"));
                 usuario.setEmail(result.getString("email"));
                 usuario.setNome(result.getString("nome"));
                 usuario.setApelido(result.getString("apelido"));
@@ -260,13 +263,14 @@ public class UsuarioDao implements UsuarioDaoIF {
     public Usuario getUsuario(Integer id) throws SQLException {
         try {
             conexao.abrir();
-            String sql = "SELECT * FROM Usuario WHERE id=?";
+            String sql = "SELECT * FROM usuario WHERE id=?";
             pstm = con.prepareStatement(sql);
             pstm.setInt(1, id);
             ResultSet result = pstm.executeQuery();
             
             Usuario usuario = new Usuario();
             if (result.next()) {
+                usuario.setId(result.getInt("id"));
                 usuario.setEmail(result.getString("email"));
                 usuario.setNome(result.getString("nome"));
                 usuario.setApelido(result.getString("apelido"));
