@@ -62,14 +62,14 @@ public class CadastrarUsuario extends HttpServlet {
                 }
                 
                 String dataNascimento = itens.get(3).getString("UTF-8");                
-                Usuario user = new Usuario();
-                user = usuarioGer.pesquisarUsuarioEmail(email);
-                if(user != null){
-                    request.setAttribute("mensagem", "Email já cadastrado");
-                    request.getRequestDispatcher("cadastrarUsuario.jsp").forward(request, response);
-                }else{
+//                Usuario user = new Usuario();
+//                user = usuarioGer.pesquisarUsuarioEmail(email);
+//                if(user.getEmail() != null){
+//                    request.setAttribute("mensagem", "Email já cadastrado!");
+//                    request.getRequestDispatcher("cadastrarUsuario.jsp").forward(request, response);
+//                }else{
                     usuarioGer.adicionarUsuario(email, nome, apelido, senha, cidade, estado, foto, converter.stringParaDate(dataNascimento));
-                }
+//                }
                 
 
             } catch (SQLException ex) {

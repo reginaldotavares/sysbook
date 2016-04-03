@@ -40,7 +40,7 @@ public class GerenciadorDeUsuario {
         usuDao.atualizar(u);
     }
     
-    public Usuario pesquisarUsuario(String nome) throws SQLException{
+    public List<Usuario> pesquisarUsuario(String nome) throws SQLException{
         DaoFactoryIF fabrica = DaoFactory.creatFactory();
         UsuarioDaoIF usuDao = fabrica.criaUsuarioDao();
         return usuDao.pesquisar(nome);

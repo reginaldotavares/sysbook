@@ -14,6 +14,14 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>br.edu.ifpb.ads.psd.projeto.servlets.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PesquisarUsuario</servlet-name>
+        <servlet-class>br.edu.ifpb.ads.psd.projeto.servlets.PesquisarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TornarAdmin</servlet-name>
+        <servlet-class>br.edu.ifpb.ads.psd.projeto.servlets.TornarAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -81,6 +89,14 @@
     <servlet-mapping>
         <servlet-name>EncontrarLivros</servlet-name>
         <url-pattern>/EncontrarLivros</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisarUsuario</servlet-name>
+        <url-pattern>/PesquisarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TornarAdmin</servlet-name>
+        <url-pattern>/TornarAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>2</session-timeout>

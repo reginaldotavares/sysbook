@@ -190,8 +190,12 @@
   }
   .row-fluid {
     width: 100%;
-    *zoom: 1;
-  }
+    height: 455px;
+    background-color: white !imp;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  } 
   .row-fluid:before,
   .row-fluid:after {
     display: table;

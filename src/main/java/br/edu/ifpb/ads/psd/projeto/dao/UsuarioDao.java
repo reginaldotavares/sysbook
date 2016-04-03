@@ -78,7 +78,7 @@ public class UsuarioDao implements UsuarioDaoIF {
             conexao.abrir();
             
             String SQL = "update Usuario set nome=?, apelido=?, senha=?, cidade=?, estado=?,"
-                    + "dataNascimento=?, foto=? where email=?";
+                    + "dataNascimento=?, foto=?, tipo=? where email=?";
             
             pstm = con.prepareStatement(SQL);            
             pstm.setString(1, usuario.getNome());
@@ -88,7 +88,8 @@ public class UsuarioDao implements UsuarioDaoIF {
             pstm.setString(5, usuario.getEstado());
             pstm.setDate(6, (java.sql.Date) usuario.getDataNascimento());
             pstm.setString(7, usuario.getFoto());
-            pstm.setString(8, usuario.getEmail());
+            pstm.setBoolean(8, usuario.getTipo());
+            pstm.setString(9, usuario.getEmail());
             pstm.executeUpdate();
         
         } catch(Exception E) { 
@@ -98,19 +99,19 @@ public class UsuarioDao implements UsuarioDaoIF {
         }
     }
 
-    public Usuario pesquisar(String nome) throws SQLException {
+    public List<Usuario> pesquisar(String nome) throws SQLException {
+         List<Usuario> usuarios = new ArrayList<Usuario>();
         try {
             conexao.abrir();
             
-            String SQL = "select * from Usuario where nome ilike '%"+ nome +"%'";
+            String SQL = "SELECT * FROM Usuario WHERE nome ILIKE '%"+ nome +"%'";
             
             pstm = con.prepareStatement(SQL);
             
-            ResultSet result = pstm.executeQuery();
-            
-            Usuario usuario = new Usuario();
+            ResultSet result = pstm.executeQuery();            
             
             while(result.next()){
+                Usuario usuario = new Usuario();
                 usuario.setEmail(result.getString("email"));
                 usuario.setNome(result.getString("nome"));
                 usuario.setApelido(result.getString("apelido"));
@@ -120,8 +121,9 @@ public class UsuarioDao implements UsuarioDaoIF {
                 usuario.setDataNascimento(result.getDate("dataNascimento"));
                 usuario.setFoto(result.getString("foto"));
                 usuario.setTipo(result.getBoolean("tipo"));
+                usuarios.add(usuario);
             }
-            return usuario;
+            return usuarios;
             
         } catch(Exception E) { 
             E.printStackTrace();
@@ -132,11 +134,13 @@ public class UsuarioDao implements UsuarioDaoIF {
     }
     
     public boolean logar(String email, String senha) throws SQLException {
+
         try {
             conexao.abrir();
        
-            String SQL = "select * from Usuario where nome ilike '%"+ email +"%'";
+            String SQL = "select * from Usuario where nome = ?";
             pstm = con.prepareStatement(SQL);
+            pstm.setString(1, email);
             
             ResultSet result = pstm.executeQuery();
             

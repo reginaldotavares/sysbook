@@ -52,7 +52,7 @@
                             </label>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="button" value="Cancelar" class="btn btn-danger">
+                                    <a href="index.jsp"><input type="button" value="Cancelar" class="btn btn-danger"></a>
                                 </div>
                             </div>
                             

@@ -52,7 +52,7 @@
                         </li>  
                         <c:if test="${sessionScope.usuario != null}">
                             <li>
-                                <a  id="boasvindas" href="#">Olá , ${sessionScope.usuario.apelido} </a>
+                                <a  id="boasvindas" href="#">Olá , ${usuario.apelido} </a>
                             </li>
                         </c:if>  
                     </ul>
@@ -96,12 +96,12 @@
                             </li>
                         </c:if>
                         <li>
-                            <form action="#" method="post" class="navbar-form pull-right">
+                            <form action="PesquisarUsuario" method="post" class="navbar-form pull-right">
                                 <!--<input type="text" name="pesquisa" class="span3">-->
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <input type="text" class="form-control" name="searchUser" placeholder="Procure pessoas">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><span  class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                        <button class="btn btn-default" type="submit"><span  class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                                     </span>
                                 </div>
                                 <!--                        <button type="submit" class="btn">Search<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>-->
@@ -113,7 +113,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-header"><span class="glyphicon glyphicon-book"></span> Livro</li>
                                     <li>
-                                        <a href="CadastrarLivros"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar</a>
+                                        <a href="#"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar</a>
                                     </li>
                                     <li class="dropdown-header"><span class="glyphicon glyphicon-user"></span> Usuário</li>
                                     <li>

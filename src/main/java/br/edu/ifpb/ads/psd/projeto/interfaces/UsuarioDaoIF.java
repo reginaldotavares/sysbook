@@ -12,7 +12,7 @@ public interface UsuarioDaoIF {
     
     public void atualizar(Usuario u)throws SQLException;
     
-    public Usuario pesquisar(String nome)throws SQLException;
+    public List<Usuario> pesquisar(String nome)throws SQLException;
     
     public boolean verificarExistenciaEmail(String email) throws SQLException;
     

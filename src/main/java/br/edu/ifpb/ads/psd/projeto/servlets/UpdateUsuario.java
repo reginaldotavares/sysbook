@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
+import javax.websocket.Session;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -45,6 +46,7 @@ public class UpdateUsuario extends HttpServlet {
             try {
                 List<FileItem> itens;
                 itens = (ArrayList<FileItem>) upload.parseRequest(request);
+                Usuario u = (Usuario) request.getSession().getAttribute("usuario");
 
                 String email = itens.get(4).getString("UTF-8");
                 String nome = itens.get(1).getString("UTF-8");
@@ -53,6 +55,12 @@ public class UpdateUsuario extends HttpServlet {
                 String cidade = itens.get(7).getString("UTF-8");
                 String estado = itens.get(6).getString("UTF-8");
                
+                u.setEmail(email);
+                u.setNome(nome);
+                u.setApelido(apelido);
+                u.setSenha(senha);
+                u.setCidade(cidade);
+                u.setEstado(estado);
                 
                 String realPath = getServletContext().getRealPath("/imagensPerfil");
                 String nomeImagem = nome;
@@ -63,12 +71,12 @@ public class UpdateUsuario extends HttpServlet {
                     new GerenciadorImagem().inserirImagemPerfil(itens.get(0), realPath, nomeImagem);
                     foto = "imagensPerfil/" + nomeImagem + ".jpg";
                 }
-                
+                u.setFoto(foto);
                 String dataNascimento = itens.get(3).getString("UTF-8");
-                System.err.println(dataNascimento);
-                Usuario u = new Usuario(email, nome, apelido, senha, cidade, estado, foto, converter.stringParaDate(dataNascimento));
+                u.setDataNascimento(converter.stringParaDate(dataNascimento));                
+//                Usuario user = new Usuario(email, nome, apelido, senha, cidade, estado, foto, converter.stringParaDate(dataNascimento));
                 usuarioGer.atualizaUsuario(u);
-
+                request.getSession().setAttribute("usuario", u);
 
             } catch (SQLException ex) {
             Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
