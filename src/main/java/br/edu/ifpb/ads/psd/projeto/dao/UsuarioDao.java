@@ -138,7 +138,7 @@ public class UsuarioDao implements UsuarioDaoIF {
         try {
             conexao.abrir();
        
-            String SQL = "select * from Usuario where nome = ?";
+            String SQL = "SELECT * FROM Usuario WHERE email = ?";
             pstm = con.prepareStatement(SQL);
             pstm.setString(1, email);
             
@@ -176,7 +176,7 @@ public class UsuarioDao implements UsuarioDaoIF {
         return false;
     }
     
-    public List<Usuario> Listar() throws SQLException {
+    public List<Usuario> listar() throws SQLException {
         List<Usuario> usuarios = new ArrayList<Usuario>();
         try {
             conexao.abrir();

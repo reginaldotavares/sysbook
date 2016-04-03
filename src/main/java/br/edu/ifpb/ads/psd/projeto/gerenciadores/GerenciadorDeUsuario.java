@@ -73,7 +73,7 @@ public class GerenciadorDeUsuario {
     public List<Usuario> listarUsuarios() throws SQLException{
         DaoFactoryIF fabrica = DaoFactory.creatFactory();
         UsuarioDaoIF usuDao = fabrica.criaUsuarioDao();
-        return usuDao.Listar();
+        return usuDao.listar();
     }
     
     public Usuario pesquisarUsuarioEmail(String email) throws SQLException{

@@ -18,7 +18,7 @@ public interface UsuarioDaoIF {
     
     public boolean logar(String email, String senha)throws SQLException;  
     
-    public List<Usuario> Listar() throws SQLException;
+    public List<Usuario> listar() throws SQLException;
     
     public void atualizarImagemPerfil(String path, int idUsuario)throws SQLException;
     
