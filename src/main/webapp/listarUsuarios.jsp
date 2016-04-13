@@ -8,6 +8,7 @@
         <c:forEach items="${usuarios}" var="user">
             <div class="col-sm-3 modal-header">
                 <img src="${user.foto}" alt="${user.apelido}" class="img-circle img-responsive" width="80" height="60">
+                <a href="AbrirUsuario?id=${user.id}"><span class="glyphicon glyphicon-asterisk"</a>
                 <legend> ${user.apelido}</legend>
             </div>
 
