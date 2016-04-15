@@ -50,7 +50,7 @@
         <c:if test="${convidado.tipo == false}">
             <div id="adm">
                 <h2>Permissões</h2>
-                <a href="#"><button type="button" class="btn btn-default">Tornar Administrador</button></a>
+                <a href="TornarAdmin?id=${convidado.id}"><button type="button" class="btn btn-default">Tornar Administrador</button></a>
             </div>
         </c:if>
     </div>
