@@ -17,15 +17,15 @@
         <div class="container-fluid ">    
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Descrição</a></li>
-                    <c:if test="${convidado.id != sessionScope.usuario.id}">
-                    <li><a href="#">Amizade</a></li>                    
-                        <c:if test="${sessionScope.usuario.tipo == true}">
-                        <li><a href="#admin">Admin</a></li> 
-                        </c:if>        
-                    </c:if>
-            </ul>
-        </div>
-    </nav>    
+    <c:if test="${convidado.id != sessionScope.usuario.id}">
+    <li><a href="#">Amizade</a></li>                    
+        <c:if test="${sessionScope.usuario.tipo == true}">
+        <li><a href="#admin">Admin</a></li> 
+        </c:if>        
+    </c:if>
+</ul>
+</div>
+</nav>    
     -->
     <div class="container">
         <div id="description">
@@ -51,6 +51,12 @@
             <div id="adm">
                 <h2>Permissões</h2>
                 <a href="TornarAdmin?id=${convidado.id}"><button type="button" class="btn btn-default">Tornar Administrador</button></a>
+            </div>
+        </c:if>
+        <c:if test="${convidado.tipo == true} && ${sessionScope.usuario.nome == admin}">
+            <div id="adm">
+                <h2>Permissões</h2>
+                <a href="TornarNormal?id=${convidado.id}"><button type="button" class="btn btn-default">Remover Permissão Admin</button></a>
             </div>
         </c:if>
     </div>

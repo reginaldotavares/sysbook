@@ -22,6 +22,10 @@
         <servlet-name>TornarAdmin</servlet-name>
         <servlet-class>br.edu.ifpb.ads.psd.projeto.servlets.TornarAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TornarNormal</servlet-name>
+        <servlet-class>br.edu.ifpb.ads.psd.projeto.servlets.TornarNormal</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -97,6 +101,10 @@
     <servlet-mapping>
         <servlet-name>TornarAdmin</servlet-name>
         <url-pattern>/TornarAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TornarNormal</servlet-name>
+        <url-pattern>/TornarNormal</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>AbrirUsuario</servlet-name>
