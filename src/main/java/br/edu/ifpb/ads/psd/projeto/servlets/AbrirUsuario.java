@@ -26,7 +26,7 @@ public class AbrirUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/user.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");
         try{
             Usuario u = usuarioGer.getUsuario(id);
             request.setAttribute("convidado",u);
