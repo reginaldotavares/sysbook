@@ -16,11 +16,17 @@ import java.util.Date;
  */
 public class ConverterData {
 
-    public java.sql.Date stringParaDate(String date) throws ParseException {
+    public  static java.sql.Date stringParaDate(String date) throws ParseException {
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         java.sql.Date data = new java.sql.Date(formatter.parse(date).getTime());
         return data;
     }
     
+    public static String getDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
 
 }
