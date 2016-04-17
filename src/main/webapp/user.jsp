@@ -53,10 +53,12 @@
                 <a href="TornarAdmin?id=${convidado.id}"><button type="button" class="btn btn-default">Tornar Administrador</button></a>
             </div>
         </c:if>
-        <c:if test="${convidado.tipo == true} && ${sessionScope.usuario.nome == admin}">
-            <div id="adm">
-                <h2>Permissões</h2>
-                <a href="TornarNormal?id=${convidado.id}"><button type="button" class="btn btn-default">Remover Permissão Admin</button></a>
-            </div>
+        <c:if test="${convidado.tipo == true}"> 
+            <c:if test="${sessionScope.usuario.email == 'admin@sysbook.com'}">
+                <div id="adm">
+                    <h2>Permissões</h2>
+                    <a href="TornarNormal?id=${convidado.id}"><button type="button" class="btn btn-default">Remover Permissão Admin</button></a>
+                </div>
+            </c:if>
         </c:if>
     </div>

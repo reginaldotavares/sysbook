@@ -26,6 +26,10 @@
         <servlet-name>TornarNormal</servlet-name>
         <servlet-class>br.edu.ifpb.ads.psd.projeto.servlets.TornarNormal</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnviarConviteAmizade</servlet-name>
+        <servlet-class>br.edu.ifpb.ads.psd.projeto.servlets.EnviarConviteAmizade</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -81,7 +85,7 @@
     <servlet>
         <servlet-name>ListarLivros</servlet-name>
         <servlet-class>br.edu.ifpb.ads.psd.projeto.servlets.ListarLivros</servlet-class>
-    </servlet>    
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListarLivros</servlet-name>
         <url-pattern>/ListarLivros</url-pattern>
@@ -114,7 +118,10 @@
         <servlet-name>AbrirUsuario</servlet-name>
         <url-pattern>/AbrirUsuario</url-pattern>
     </servlet-mapping>
-        
+    <servlet-mapping>
+        <servlet-name>EnviarConviteAmizade</servlet-name>
+        <url-pattern>/EnviarConviteAmizade</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>2</session-timeout>
     </session-config>
