@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class GerenciadorDeAmizade {
     
-    public void adicionarAmizade(Usuario usuario, Usuario amigo) throws SQLException{
+    public void enviarConviteAmizade(Usuario usuario, Usuario amigo) throws SQLException{
         Amizade novaAmizade = new Amizade();
         novaAmizade.setEmailUsuario(usuario.getEmail());
         novaAmizade.setEmailAmigo(amigo.getEmail());
@@ -26,16 +26,16 @@ public class GerenciadorDeAmizade {
         amizadeDao.remover(a);
     }
     
-    public void atualizaAmizade(Amizade a) throws SQLException{
+    public void aceitaAmizade(Amizade a) throws SQLException{
         DaoFactoryIF fabrica = DaoFactory.creatFactory();
         AmizadeDaoIF amizadeDao = fabrica.criaAmizadeDao();
         amizadeDao.atualizar(a);
     }
     
-    public Amizade pesquisarAmizade(String emailUsuario) throws SQLException{
+    public Amizade pesquisarAmizade(String emailUsuario, String emailAmigo) throws SQLException{
         DaoFactoryIF fabrica = DaoFactory.creatFactory();
         AmizadeDaoIF amizadeDao = fabrica.criaAmizadeDao();
-        return amizadeDao.pesquisar(emailUsuario);
+        return amizadeDao.pesquisar(emailUsuario, emailAmigo);
     }
     
     public ArrayList<Amizade> listarAmizade(String emailUsuario) throws SQLException{

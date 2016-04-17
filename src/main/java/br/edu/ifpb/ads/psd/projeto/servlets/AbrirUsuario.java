@@ -5,7 +5,9 @@
  */
 package br.edu.ifpb.ads.psd.projeto.servlets;
 
+import br.edu.ifpb.ads.psd.projeto.entidades.Amizade;
 import br.edu.ifpb.ads.psd.projeto.entidades.Usuario;
+import br.edu.ifpb.ads.psd.projeto.gerenciadores.GerenciadorDeAmizade;
 import br.edu.ifpb.ads.psd.projeto.gerenciadores.GerenciadorDeUsuario;
 import java.io.IOException;import javax.servlet.RequestDispatcher;
 ;
@@ -20,7 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AbrirUsuario extends HttpServlet {
     
-    private GerenciadorDeUsuario usuarioGer = new GerenciadorDeUsuario();    
+    private GerenciadorDeUsuario usuarioGer = new GerenciadorDeUsuario();  
+    private GerenciadorDeAmizade amizadeGer = new GerenciadorDeAmizade();
 
  
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,6 +32,7 @@ public class AbrirUsuario extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");
         try{
             Usuario u = usuarioGer.getUsuario(id);
+           // Amizade amizade = amizadeGer.adicionarAmizade(u, u)
             request.setAttribute("convidado",u);
             dispatcher.forward(request, response);
         }catch(Exception ex){
