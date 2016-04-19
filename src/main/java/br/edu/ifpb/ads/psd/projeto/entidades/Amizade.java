@@ -9,18 +9,19 @@ public class Amizade {
         private String emailUsuario;
         private String emailAmigo;
         private boolean isAmigo;
-        private Date since;
+        private String since;
         
 
-    public Amizade() {
+    public Amizade() throws ParseException{
+        this.isAmigo = false;
+        this.since = ConverterData.getDateTime();
     }
 
-    public Amizade(int id, String emailUsuario, String emailAmigo) throws ParseException {
-        this.id = id;
+    public Amizade(String emailUsuario, String emailAmigo, boolean isAmigo) throws ParseException {
         this.emailUsuario = emailUsuario;
         this.emailAmigo = emailAmigo;
-        this.isAmigo = false;
-        this.since = ConverterData.stringParaDate(ConverterData.getDateTime());
+        this.isAmigo = isAmigo;
+        this.since = ConverterData.getDateTime();
     }
 
     public int getId() {
@@ -55,11 +56,11 @@ public class Amizade {
         this.isAmigo = isAmigo;
     }
     
-    public Date getSince() {
+    public String getSince() {
         return since;
     }
 
-    public void setSince(Date since) {
+    public void setSince(String since) {
         this.since = since;
     }
 

@@ -5,6 +5,7 @@ import br.edu.ifpb.ads.psd.projeto.conexao.ConnectionFactory;
 import br.edu.ifpb.ads.psd.projeto.entidades.Amizade;
 import br.edu.ifpb.ads.psd.projeto.interfaces.AmizadeDaoIF;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,19 +25,20 @@ public class AmizadeDao implements AmizadeDaoIF {
         } catch (Exception e) {
         }
     }
-
+    
+    @Override
     public void inserir(Amizade amizade) throws SQLException {
 
         try {
             conexao.abrir();
 
             String SQL = "INSERT INTO Amizade(emailUsuario, emailAmigo, isAmigo, since) VALUES (?,?,?,?)";
-
+                        
             pstm = con.prepareStatement(SQL);
             pstm.setString(1, amizade.getEmailUsuario());
             pstm.setString(2, amizade.getEmailAmigo());
             pstm.setBoolean(3, amizade.isAmigo());
-            pstm.setDate(4, amizade.getSince());
+            pstm.setString(4, amizade.getSince());
 
             pstm.executeUpdate();
 
@@ -45,6 +47,7 @@ public class AmizadeDao implements AmizadeDaoIF {
         }
     }
 
+    @Override
     public void remover(Amizade amizade) throws SQLException {
         try {
             conexao.abrir();
@@ -62,6 +65,7 @@ public class AmizadeDao implements AmizadeDaoIF {
         }
     }
 
+    @Override
     public void atualizar(Amizade amizade) throws SQLException {
 
         try {
@@ -70,8 +74,8 @@ public class AmizadeDao implements AmizadeDaoIF {
             String SQL = "UPDATE Amizade SET isAmigo= ? since = ? WHERE id=?";
 
             pstm = con.prepareStatement(SQL);
-            pstm.setBoolean(1, !amizade.isAmigo());
-            pstm.setDate(2, amizade.getSince());
+            pstm.setBoolean(1, amizade.isAmigo());
+            pstm.setString(2, amizade.getSince());
             pstm.setInt(3, amizade.getId());
             pstm.executeUpdate();
         } catch (Exception E) {
@@ -80,17 +84,91 @@ public class AmizadeDao implements AmizadeDaoIF {
             conexao.liberar();
         }
     }
-
+    
+    @Override
+    public void aceita(Amizade amizade) throws SQLException{
+        try{
+            conexao.abrir();
+            String SQL = "UPDATE Amizade SET isAmigo = ? since = ? WHERE emailUsuario = ? AND emailAmigo = ?";
+            pstm = con.prepareStatement(SQL);
+            pstm.setBoolean(1, true);
+            pstm.setString(2, amizade.getSince());
+            pstm.setString(3, amizade.getEmailUsuario());
+            pstm.setString(4, amizade.getEmailAmigo());
+            pstm.execute();
+            
+            SQL = "INSERT INTO Amizade(isAmigo, since, emailAmigo, emailUsuario) VALUES (?,?,?,?)";
+            
+            pstm = con.prepareStatement(SQL);
+            pstm.setBoolean(1, true);
+            pstm.setString(2, amizade.getSince());
+            pstm.setString(3, amizade.getEmailUsuario());
+            pstm.setString(4, amizade.getEmailAmigo());
+            pstm.execute();
+            
+        }catch(SQLException ex){
+            
+        }finally{
+            conexao.liberar();
+        }
+    }
+    
+    @Override
+    public boolean isAmigo(String emailUsuario, String emailAmigo) throws SQLException {
+        try{
+            conexao.abrir();
+            
+            String sql = "SELECT * FROM Amizade WHERE emailUsuario = ? AND emailAmigo = ? AND isAmigo = ?";
+            
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, emailUsuario);
+            pstm.setString(2, emailAmigo);
+            pstm.setBoolean(3, true);
+            
+            ResultSet rs = pstm.executeQuery();
+            
+            return rs.next();
+        }catch(SQLException  ex){
+            ex.printStackTrace();
+        }finally{
+            conexao.liberar();                   
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean isPendente(String emailUsuario, String emailAmigo) throws SQLException {
+        try{
+            conexao.abrir();
+            
+            String sql = "SELECT * FROM Amizade WHERE emailUsuario = ? AND emailAmigo = ? AND isAmigo = ?)";
+            
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, emailUsuario);
+            pstm.setString(2, emailAmigo);
+            pstm.setBoolean(3, false);           
+            
+            ResultSet rs = pstm.executeQuery();
+            
+            return rs.next();
+        }catch(SQLException  ex){
+            ex.printStackTrace();
+        }finally{
+            conexao.liberar();                   
+        }
+        return false;
+    }
+    
+    @Override
     public Amizade pesquisar(String emailUsuario, String emailAmigo) throws SQLException {
         try {
             conexao.abrir();
 
-            String SQL = "SELECT * FROM Amizade WHERE emailUsuario = ? AND emailAmigo= ? AND isAmigo = ?";
+            String SQL = "SELECT * FROM Amizade WHERE emailUsuario = ? AND emailAmigo = ?";
 
             pstm = con.prepareStatement(SQL);
             pstm.setString(1, emailUsuario);
-            pstm.setString(2, emailAmigo);
-            pstm.setBoolean(3, true);
+            pstm.setString(2, emailAmigo);            
 
             ResultSet result = pstm.executeQuery();
 
@@ -99,7 +177,7 @@ public class AmizadeDao implements AmizadeDaoIF {
             while (result.next()) {
                 amizade.setEmailUsuario(result.getString("emailUsuario"));
                 amizade.setEmailAmigo(result.getString("emailAmigo"));
-                amizade.setSince(result.getDate("since"));
+                amizade.setSince(result.getString("since"));
                 amizade.setIsAmigo(result.getBoolean("isAmigo"));
                 amizade.setId(result.getInt("id"));
             }
@@ -112,7 +190,6 @@ public class AmizadeDao implements AmizadeDaoIF {
         }
         return null;
     }
-
 
     @Override
     public Amizade pesquisar(int id) throws SQLException {
@@ -131,7 +208,7 @@ public class AmizadeDao implements AmizadeDaoIF {
             while (result.next()) {
                 amizade.setEmailUsuario(result.getString("emailUsuario"));
                 amizade.setEmailAmigo(result.getString("emailAmigo"));
-                amizade.setSince(result.getDate("since"));
+                amizade.setSince(result.getString("since"));
                 amizade.setIsAmigo(result.getBoolean("isAmigo"));
                 amizade.setId(result.getInt("id"));
             }
@@ -144,7 +221,6 @@ public class AmizadeDao implements AmizadeDaoIF {
         }
         return null;
     }
-
 
     @Override
     public ArrayList<Amizade> listar(String email) throws SQLException {
@@ -167,7 +243,7 @@ public class AmizadeDao implements AmizadeDaoIF {
 
                 amizade.setEmailUsuario(result.getString("emailUsuario"));
                 amizade.setEmailAmigo(result.getString("emailAmigo"));
-                amizade.setSince(result.getDate("since"));
+                amizade.setSince(result.getString("since"));
                 amizade.setIsAmigo(result.getBoolean("isAmigo"));
                 amizade.setId(result.getInt("id"));
 
@@ -180,6 +256,34 @@ public class AmizadeDao implements AmizadeDaoIF {
         } finally {
             conexao.liberar();
         }
+        return null;
+    }
+    
+    @Override
+    public ArrayList<String> listarSolicitacoes(String email) throws SQLException{
+        
+        try{
+            conexao.abrir();
+            
+            String sql = "SELECT emailUsuario FROM Amizade WHERE emailAmigo = ? AND isAmigo ? ORDER BY since DESC";
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, email);
+            pstm.setBoolean(2, false);
+            
+            ResultSet rs = pstm.executeQuery();
+            
+            ArrayList<String> solicitações = new ArrayList<>();
+            
+            while (rs.next()) {                
+                solicitações.add(rs.getString("emailUsuario"));
+            }
+            return (solicitações.isEmpty()) ? null : solicitações;
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            conexao.liberar();
+        }
+        
         return null;
     }
 }

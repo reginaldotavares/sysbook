@@ -6,9 +6,15 @@
 package br.edu.ifpb.ads.psd.projeto.servlets;
 
 import br.edu.ifpb.ads.psd.projeto.converterInformacao.ConverterData;
+import br.edu.ifpb.ads.psd.projeto.entidades.Usuario;
 import br.edu.ifpb.ads.psd.projeto.gerenciadores.GerenciadorDeAmizade;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,17 +40,7 @@ public class EnviarConviteAmizade extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String emailUser = request.getParameter("emailUser");
-        String emailConvidado = request.getParameter("emailConvidado");
-        
-        
-        
-        
-        try{
-            
-        }catch(){
-            
-        }
+        doPost(request, response);
     }
 
     /**
@@ -58,7 +54,16 @@ public class EnviarConviteAmizade extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+        Usuario visitante = (Usuario) request.getSession().getAttribute("visitante");
+        try {
+            amizadeGer.enviarConviteAmizade(user, visitante);
+        } catch (SQLException | ParseException ex) {
+            ex.printStackTrace();
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ListarUsuarios");
+        dispatcher.forward(request, response);
+        
     }
 
     /**

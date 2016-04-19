@@ -12,11 +12,19 @@ public interface AmizadeDaoIF {
     
     public void atualizar(Amizade a)throws SQLException;
     
+    public void aceita(Amizade amizade) throws SQLException;
+    
+    public boolean isAmigo(String emailUsuario, String emailAmigo) throws SQLException;
+    
+    public boolean isPendente(String emailUsuario, String emailAmigo) throws SQLException;
+    
     public Amizade pesquisar(String emailUsuario, String emailAmigo)throws SQLException;
     
     public Amizade pesquisar(int id) throws SQLException;
     
     public ArrayList<Amizade> listar(String email) throws SQLException;    
+    
+    public ArrayList<String> listarSolicitacoes(String email) throws SQLException;
    
    
 }
